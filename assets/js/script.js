@@ -25,6 +25,24 @@ function getLatLon (city) {
         .then(function (response){
             response.json()
             .then(function(data){
+                currentWeather(data.coord.lat,data.coord.lon)
             })
         })
+}
+
+//create a function to display daily weather for city input by user
+function currentWeather(lat,lon) {
+    var baseUrl ="https://api.openweathermap.org/data/2.5/onecall?"
+    var getLat ="lat=" + lat
+    var getLon ="&lon=" + lon
+    var restUrl ="&exclude=minutely,hourly,daily,alerts&units=imperial&appid="
+    fetch(baseUrl+getLat+getLon+restUrl+apiKey)
+        .then(function (response){
+            response.json()
+            .then(function(data){
+                console.log(data)
+                
+            })
+    }) 
+
 }
