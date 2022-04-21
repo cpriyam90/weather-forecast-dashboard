@@ -1,0 +1,33 @@
+.header{
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+} 
+
+
+.card {
+    margin: 1%;
+    border-radius: 1rem;
+}
+
+.search-btn {
+    border-radius: 1rem;
+    margin: 2%;
+}
+
+
+.Header {
+    display: flex;
+    justify-content: space-between;
+    margin: 1%;
+}
+
+.weather-card {
+    margin: 1%;
+    border: solid 1px black;
+    border-radius: 1rem;
+    padding: 5%;
+}
+
+.success {
+    color: green
+}
