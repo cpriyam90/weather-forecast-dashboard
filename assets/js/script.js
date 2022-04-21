@@ -41,8 +41,41 @@ function currentWeather(lat,lon) {
             response.json()
             .then(function(data){
                 console.log(data)
+                displayCurrentDay (data)
+                CurrentDate ()
                 
             })
     }) 
 
+}
+
+//Display weather for city pulled from api in weather card
+function displayCurrentDay (data) {
+    var cityName = document.querySelector(".city");
+    cityName.innerText = input.value;
+    var currentWeatherIconEl = $("#current-icon");
+    currentWeatherIconEl.attr("src", "https://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png")
+    var cityTemp = document.querySelector(".city-temp")
+    var cityWind = document.querySelector(".city-wind")
+    var cityHumidity = document.querySelector(".city-humidity")
+    var cityUv = document.querySelector(".city-uv")
+    cityTemp.textContent = "Temp: " + data.current.temp + "F"
+    cityWind.textContent = "Wind Speed: " + data.current.wind_speed + "MPH"
+    cityHumidity.textContent = "Humidity: " + data.current.humidity + "%"
+    cityUv.textContent = "UV Index: " + data.current.uvi
+    if (cityUv < 1) {
+        cityUv.style.color = "Green"
+    } else {
+        cityUv.style.color = "Red"
+    }
+    input.value = ""
+    
+}
+
+//function to display daily date
+var CurrentDate = function() {
+    var date = document.getElementById("date")
+    var dateString = moment().format("MMM Do YY");
+    console.log(dateString)
+    date.innerText = dateString;
 }
