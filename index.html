@@ -21,6 +21,20 @@
 
     <!--main content section-->
     <section>
+        <div class="row">
+            <!--Card with image and search area where user will input city-->
+            <div class="col-md-3 col-sm-12">
+                <div class="card text-center">
+                    <img src="./assets/images/weather.jpg" class="card-img-top" alt="sun is shining brightly over snow-capped mountains">
+                    <form class="card-body form-label">
+                    <h5 class="card-title">Search for a city</h5>
+                    <input class="card-text" type="search" id="query" name="q" placeholder="Search...">
+                    <button class="btn btn-primary col-7 search-btn" id="searchBtn">Search</button>
+                    </form>
+                </div>  
+                <!--Dynamic city forecast will be displayed below when user clicks search button-->
+                <div class="cityForecast row d-flex justify-content-center"></div>          
+            </div> 
            
     </section>
     
