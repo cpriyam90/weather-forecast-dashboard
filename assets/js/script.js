@@ -26,6 +26,7 @@ function getLatLon (city) {
             response.json()
             .then(function(data){
                 currentWeather(data.coord.lat,data.coord.lon)
+                getDaily(data.coord.lat,data.coord.lon)
             })
         })
 }
@@ -78,4 +79,20 @@ var CurrentDate = function() {
     var dateString = moment().format("MMM Do YY")
     console.log(dateString)
     date.innerText = dateString;
+}
+
+//function to display weekly forecast
+var getDaily = function(lat,lon) {
+    var baseUrl ="https://api.openweathermap.org/data/2.5/onecall?"
+    var getLat ="lat=" + lat
+    var getLon ="&lon=" + lon
+    var restUrl ="&exclude=minutely,hourly,alerts&units=imperial&appid="
+    fetch(baseUrl+getLat+getLon+restUrl+apiKey)
+        .then(function (response){
+            response.json()
+            .then(function(data){
+            console.log(data.daily)
+        
+        })
+    })
 }
