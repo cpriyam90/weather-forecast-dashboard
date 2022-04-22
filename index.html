@@ -32,11 +32,11 @@
                     <button class="btn btn-primary col-7 search-btn" id="searchBtn">Search</button>
                     </form>
                 </div>  
-                <!--Dynamic city forecast will be displayed below when user clicks search button-->
-                <div class="cityForecast row d-flex justify-content-center"></div>          
+                <!--Searched cities will be saved as buttons below-->
+                <div class="cityContainer row d-flex justify-content-center"></div>          
             </div>
             
-            <!--Daily forecast cards will be displayed here-->
+            <!--Dynamic city forecast will be displayed below when user clicks search button-->
             <div class="col-md-9 col-sm-12 city-info">
                 <div class="today-weather">
                     <div class="weather-card">
@@ -51,6 +51,7 @@
                         <div class="city-uv current-weather">UV Index: <span class="success" class="city-uv"></span> </div>
                     </div>
                 </div>
+                <!--Daily forecast for searched city displayed below-->
                 <div class="dailyForecast-card">
                     <h4 class = "forecastHeader text-center">Weekly Forecast:</h4>
                     <div class="dailyForecast row">
