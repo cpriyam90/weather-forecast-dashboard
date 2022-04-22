@@ -111,33 +111,29 @@ var showForecast = function(data) {
         date.classList.add("weeklyDate")
         var dateString = moment.unix(data[i].dt).format("MM/DD/YYYY")
         date.textContent = dateString 
-    
+        dayCard.appendChild(date)
         //forecast cards will hold temp, wind, humidity, and weather icon
         //weekly temperature element
         var temp = document.createElement('div')
         temp.classList.add("weekly-forecast", "temp")
-        temp.textContent = "Temp: " + data[i].temp.day + "F";
-        
+        temp.textContent = "Temp: " + data[i].temp.day + "F"
+        dayCard.appendChild(temp)
         //image icon element
         var imgUrl = "https://openweathermap.org/img/wn/" + data[i].weather[0].icon + ".png"
         var img = document.createElement("img")
         img.setAttribute("src", imgUrl)
-        
+        dayCard.appendChild(img)
         //wind element
         var wind = document.createElement('div')
         wind.classList.add("weekly-forecast", 'wind')
         wind.textContent = "Wind: " + data[i].wind_speed + "MPH"
-        
+        dayCard.appendChild(wind)
         //humidity element
         var humidity = document.createElement('div')
         humidity.classList.add("weekly-forecast", "humidity")
         humidity.textContent = "Humidity: " + data[i].humidity + "%"
-       
-        dayCard.appendChild(date)
-        dayCard.appendChild(img)
-        dayCard.appendChild(temp)
-        dayCard.appendChild(wind)
         dayCard.appendChild(humidity)
+        
         forecastContainer.appendChild(dayCard)
         
     }
