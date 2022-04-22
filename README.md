@@ -11,6 +11,7 @@ HTML, CSS, JavaScript, Jquery, Bootstrap, Server-Side Apis. Application was crea
 * Moment.js code was built upon to display day and date at the top of the page.
 * Script.js file was created to create functions to fetch and display current and weekly forecast from OpenWeather 
 api.
+* OpenWeather API
 
 ## Usage
 
@@ -21,6 +22,7 @@ This application provides a user a daily weather forecast for the searched city.
 * 1.Took a lot of assistance from my tutor Abdullah to think of logic and learn how to use API endpoints. With his help, I was able to understand and learn the logic and complete my assignment
 * 2.Followed directions from my instructor Diego on using API endpoints and how to have my functions flow
 * 3.Classmate Dimos helped me understand how to display weather icons based on information received from endpoint
+* OpenWeather Api Documentation
 
 ## Challenges
 Working with localStorage to save city information and display city name when user clicks on button of searched cities. 
