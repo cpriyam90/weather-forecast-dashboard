@@ -76,7 +76,7 @@ function currentWeather(lat,lon) {
         .then(function (response){
             response.json()
             .then(function(data){
-                console.log(data)
+                // console.log(data)
                 displayCurrentDay (data)
                 CurrentDate ()
                 
@@ -112,7 +112,7 @@ function displayCurrentDay (data) {
 var CurrentDate = function() {
     var date = document.getElementById("date")
     var dateString = moment().format("MMM Do YY")
-    console.log(dateString)
+    // console.log(dateString)
     date.innerText = dateString;
 }
 
@@ -126,7 +126,7 @@ var getDaily = function(lat,lon) {
         .then(function (response){
             response.json()
             .then(function(data){
-            console.log(data.daily)
+            // console.log(data.daily)
             showForecast(data.daily)
         
         })
