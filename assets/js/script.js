@@ -6,16 +6,36 @@
 //Define global variables
 var input = document.getElementById("query")
 var searchBtn = document.getElementById("searchBtn")
+var cities = []
+var cityContainer = document.querySelector(".cityContainer")
 
 //Event listener added to search button display weather forecast
 searchBtn.addEventListener("click", function(event) {
    event.preventDefault () 
    getLatLon(input.value)
+   cityList.push(input.value)
+   //create buttons for searched cities
+   var cityButton = document.createElement("button")
+   cityButton.textContent = input.value
+   cityButton.classList.add("btn-primary", "col-8", "btn", "mb-2")
+   cityContainer.appendChild(cityButton)
+   cityButton.addEventListener("click", function(event){
+      event.preventDefault()
+      getLatLon(cityButton.textContent) 
+   })
+   savedCities ()
    
 })
 
 //api key from weatherapi
 var apiKey = "aca0281335faae7fed82a24be5cfe012"
+
+//Function for saving city buttons to localstorage
+function savedCities () {
+    for(var i =0; i < cityList.length; i++) {
+        localStorage.setItem(i,cityList[i])
+    }
+}
 
 //get api data for lat/lon 
 function getLatLon (city) {
