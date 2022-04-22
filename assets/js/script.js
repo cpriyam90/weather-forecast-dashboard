@@ -92,25 +92,53 @@ var getDaily = function(lat,lon) {
             response.json()
             .then(function(data){
             console.log(data.daily)
+            showForecast(data.daily)
         
         })
     })
 }
 
 //function to display weekly forecast to user in forecast card
-var forecast = document.querySelector('.dailyforecast')
+var forecastContainer = document.querySelector('.dailyForecast')
 var showForecast = function(data) {
-    forecast.innerHTML = " "
+    forecastContainer.innerHTML = ""
     for (var i = 1; i < data.length; ++i){
-        var eachDay = document.createElement("div")
-        eachDay.classList.add("card-forecast", "col-lg-2", "col-4")
+        const dayCard = document.createElement("div")
+        dayCard.classList.add("forecastCard", "col-lg-2", "col-4")
+        
 
         var date = document.createElement("h4")
         date.classList.add("weeklyDate")
         var dateString = moment.unix(data[i].dt).format("MM/DD/YYYY")
         date.textContent = dateString 
-
-        //weekly temperature forecast
+    
+        //forecast cards will hold temp, wind, humidity, and weather icon
+        //weekly temperature element
         var temp = document.createElement('div')
         temp.classList.add("weekly-forecast", "temp")
         temp.textContent = "Temp: " + data[i].temp.day + "F";
+        
+        //image icon element
+        var imgUrl = "https://openweathermap.org/img/wn/" + data[i].weather[0].icon + ".png"
+        var img = document.createElement("img")
+        img.setAttribute("src", imgUrl)
+        
+        //wind element
+        var wind = document.createElement('div')
+        wind.classList.add("weekly-forecast", 'wind')
+        wind.textContent = "Wind: " + data[i].wind_speed + "MPH"
+        
+        //humidity element
+        var humidity = document.createElement('div')
+        humidity.classList.add("weekly-forecast", "humidity")
+        humidity.textContent = "Humidity: " + data[i].humidity + "%"
+       
+        dayCard.appendChild(date)
+        dayCard.appendChild(img)
+        dayCard.appendChild(temp)
+        dayCard.appendChild(wind)
+        dayCard.appendChild(humidity)
+        forecastContainer.appendChild(dayCard)
+        
+    }
+}
