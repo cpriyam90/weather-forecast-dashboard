@@ -96,3 +96,21 @@ var getDaily = function(lat,lon) {
         })
     })
 }
+
+//function to display weekly forecast to user in forecast card
+var forecast = document.querySelector('.dailyforecast')
+var showForecast = function(data) {
+    forecast.innerHTML = " "
+    for (var i = 1; i < data.length; ++i){
+        var eachDay = document.createElement("div")
+        eachDay.classList.add("card-forecast", "col-lg-2", "col-4")
+
+        var date = document.createElement("h4")
+        date.classList.add("weeklyDate")
+        var dateString = moment.unix(data[i].dt).format("MM/DD/YYYY")
+        date.textContent = dateString 
+
+        //weekly temperature forecast
+        var temp = document.createElement('div')
+        temp.classList.add("weekly-forecast", "temp")
+        temp.textContent = "Temp: " + data[i].temp.day + "F";
